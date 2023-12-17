@@ -8,6 +8,7 @@ const modelClose = document.querySelector(".close-model");
 function openModal() {
   model.style.display = "block";
   overlay.style.display = "block";
+  model.classList.remove("hidden");
 }
 
 function closeModal() {
