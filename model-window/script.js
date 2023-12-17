@@ -20,7 +20,7 @@ function closeModal() {
   overlay.classList.add("hidden");
 }
 
-console.log(btn.length);
+// console.log(btn.length);
 
 for (let i = 0; i < btn.length; i++) {
   btn[i].addEventListener("click", openModal);
@@ -29,3 +29,11 @@ for (let i = 0; i < btn.length; i++) {
 
 modelClose.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  console.log(e.key);
+  if (e.key === "Escape" && !model.classList.contains("hidden")) {
+    console.log("esc was pressed");
+    closeModal();
+  }
+});
