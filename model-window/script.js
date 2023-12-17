@@ -6,9 +6,11 @@ const model = document.querySelector(".model");
 const modelClose = document.querySelector(".close-model");
 
 function openModal() {
-  model.style.display = "block";
-  overlay.style.display = "block";
+  // model.style.display = "block";
+  // overlay.style.display = "block";
   model.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  console.log(btn);
 }
 
 function closeModal() {
