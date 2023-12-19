@@ -5,6 +5,9 @@ const overlay = document.querySelector(".overlay");
 const model = document.querySelector(".model");
 const modelClose = document.querySelector(".close-model");
 
+// model.classList.remove("col");
+// btn.classList.add("col");
+
 function openModal() {
   // model.style.display = "block";
   // overlay.style.display = "block";
@@ -18,6 +21,7 @@ function closeModal() {
   // overlay.style.display = "none";
   model.classList.add("hidden");
   overlay.classList.add("hidden");
+  // btn.classList.add("col");
 }
 
 // console.log(btn.length);
