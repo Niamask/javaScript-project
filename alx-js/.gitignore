@@ -1,0 +1,4 @@
+*.json
+node_modules
+babel.config.js
+nodesource_setup.sh
