@@ -84,3 +84,67 @@ function getListStudents(params) {
 
 const students = getListStudents();
 console.log(students);
+
+// 1. More mapping
+function getListStudentIds(ArrayObject) {
+  if (!Array.isArray(ArrayObject) || !ArrayObject) return [];
+
+  return ArrayObject.map((obj) => obj.id);
+}
+
+console.log(getListStudentIds("hello"));
+console.log(getListStudentIds(getListStudents()));
+
+// 2. Filter
+function getStudentsByLocation(listStudents, city) {
+  if (!Array.isArray(listStudents) || !listStudents) return [];
+
+  return listStudents.filter((obj) => obj.location === city);
+}
+console.log(getStudentsByLocation(students, "San Francisco"));
+
+// 3. Reduce
+function getStudentIdsSum(listStudents) {
+  if (!Array.isArray(listStudents) || !listStudents) return [];
+
+  return listStudents.reduce((sum, obj) => (sum += obj.id), 0);
+}
+const value = getStudentIdsSum(students);
+
+console.log(value);
+
+// 4. Combine
+function updateStudentGradeByCity(listStudents, city, newGrade) {
+  if (!Array.isArray(listStudents) || !listStudents) return [];
+
+  return listStudents
+    .filter((obj) => obj.location === city)
+    .map((obj) => ({
+      ...obj,
+      grade:
+        newGrade.filter((f) => f.studentId === obj.id).map((g) => g.grade)[0] ||
+        "N/A",
+    }));
+}
+
+console.log(
+  updateStudentGradeByCity(getListStudents(), "San Francisco", [
+    { studentId: 5, grade: 97 },
+    { studentId: 1, grade: 86 },
+  ])
+);
+
+console.log(
+  updateStudentGradeByCity(getListStudents(), "San Francisco", [
+    { studentId: 5, grade: 97 },
+  ])
+);
+
+// 6. Set data structure
+function setFromArray(array) {
+  return new Set(array);
+}
+console.log(setFromArray([12, 32, 15, 78, 98, 15]));
+
+// 7. More set data structure
+function hasValuesFromArray(set, array) {}
